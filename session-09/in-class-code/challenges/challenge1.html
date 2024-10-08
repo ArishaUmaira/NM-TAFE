@@ -73,23 +73,37 @@
         // List example
         return (
           // Dont foget to wrap you list in the <ul> or <ol>tag
+          // <ul>
+          //   {items.map((item) => (
+          //     <li key={item.product}>
+          //       Name: {item.product}
+          //       <br />
+          //       Amount: {item.number}
+          //       <br />
+          //       Price: {item.price}
+          //       <br />
+          //       Cost: {item.price * item.number}
+          //       <br />
+          //     </li>
+          //   ))}
+          // </ul>
+            
           <ul>
-            {userList.map((user, index) => (
-              <li key={index}>
-                Name: {user.firstName} {user.lastName}
-                <br />
-                Age: {user.age}
-                <br />
-                Skills: {user.skills.join(", ")}
+            {userList.map((item) => (
+              <li key={item.firstName}>
+                {item.lastName}
+                {item.age}
+                {item.skills}
               </li>
             ))}
-          </ul>
+          </ul>   
         );
       }
       // Correct usage of ReactDOM.createRoot
-      const domNode = document.getElementById("app");
-      const root = ReactDOM.createRoot(domNode); // Initialise the root.
-      root.render(<UserList />); // Render the App component.
+      const root = ReactDOM.createRoot(
+        document.getElementById("userList")
+      ); // Initialise the root.
+      root.render(<userList/>); // Render the App component.
     </script>
   </body>
 </html>
